@@ -9,7 +9,6 @@ const ln3 = new Gpio(18, {mode:Gpio.OUTPUT});
 const ln4 = new Gpio(23, {mode:Gpio.OUTPUT});
 
 const FREQ = 100;
-
 enA.pwmFrequency(FREQ);
 enB.pwmFrequency(FREQ);
 
