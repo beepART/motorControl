@@ -18,7 +18,7 @@ exports.BoatControl = {
             console.log("running left forward");
             ln3.digitalWrite(0);
             ln4.digitalWrite(1);
-            enB.pwmWrite(speed * 256);
+            enB.pwmWrite(speed * 255);
 
         }
         if (speed === 0) {
@@ -29,7 +29,7 @@ exports.BoatControl = {
             console.log("running left backward");
             ln3.digitalWrite(1);
             ln4.digitalWrite(0);
-            enB.pwmWrite(Math.abs(speed) * 256);
+            enB.pwmWrite(Math.abs(speed) * 255);
         }else {
             return false;
         }
