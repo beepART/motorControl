@@ -12,8 +12,8 @@ const FREQ = 100;
 enA.pwmFrequency(FREQ);
 enB.pwmFrequency(FREQ);
 
-exports.BoatControl = function() {
-    function setPowerLeft (speed){
+exports.BoatControl = {
+     setPowerLeft (speed){
         if(speed > 0 ) {
             console.log("running left forward");
             ln3.digitalWrite(0);
@@ -33,9 +33,9 @@ exports.BoatControl = function() {
         }else {
             return false;
         }
-    };
+    },
 
-    function setPowerRight(speed){
+     setPowerRight(speed){
         if(speed > 0 ) {
             console.log("running right forward");
             ln1.digitalWrite(0);
@@ -54,5 +54,5 @@ exports.BoatControl = function() {
         }else {
             return false;
         }
-    };
+    }
 };
