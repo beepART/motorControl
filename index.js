@@ -13,13 +13,13 @@ enA.pwmFrequency(FREQ);
 enB.pwmFrequency(FREQ);
 
 exports.BoatControl = {
-     setPowerLeft (speed){
+    setPowerLeft (speed){
+        console.log('speed left: ', speed);
         if(speed > 0 ) {
             console.log("running left forward");
             ln3.digitalWrite(0);
             ln4.digitalWrite(1);
-            enB.pwmWrite(speed * 255);
-
+            enB.pwmWrite(Math.floor(speed * 255));
         }
         if (speed === 0) {
             ln3.digitalWrite(0);
@@ -29,18 +29,18 @@ exports.BoatControl = {
             console.log("running left backward");
             ln3.digitalWrite(1);
             ln4.digitalWrite(0);
-            enB.pwmWrite(Math.abs(speed) * 255);
+            enB.pwmWrite(Math.floor(Math.abs(speed) * 255));
         }else {
             return false;
         }
     },
-
-     setPowerRight(speed){
+    setPowerRight(speed){
+        console.log('speed right: ', speed);
         if(speed > 0 ) {
             console.log("running right forward");
             ln1.digitalWrite(0);
             ln2.digitalWrite(1);
-            enA.pwmWrite(speed * 255);
+            enA.pwmWrite(Math.floor(speed * 255));
         }
         if (speed === 0) {
             ln1.digitalWrite(0);
@@ -50,7 +50,7 @@ exports.BoatControl = {
             console.log("running right backward");
             ln1.digitalWrite(1);
             ln2.digitalWrite(0);
-            enA.pwmWrite(Math.abs(speed) * 255);
+            enA.pwmWrite(Math.floor(Math.abs(speed) * 255));
         }else {
             return false;
         }
